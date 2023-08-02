@@ -1,0 +1,59 @@
+# .gitignore file
+
+# Built application files
+bin/
+obj/
+
+# MSTest test Results
+[TestResults]/*
+*TestResults.xml
+*.TestAdapter.dll
+*.coverage
+*.trx
+
+# ReSharper - JetBrains .NET IDE
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# NuGet Packages Directory
+packages/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# DotCover is a Code Coverage Tool
+*.dotCover
+
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+# Azure DevOps build output
+azureBuild/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# VS4Mac specific settings
+.vs/MvcMovie/v16/
+
+# Rider is a cross-platform .NET IDE
+.idea/
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
