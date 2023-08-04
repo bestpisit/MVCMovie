@@ -25,6 +25,7 @@ public static class SeedData
                     Title = "When Best Date Bybua",
                     ReleaseDate = DateTime.Parse("2023-3-31"),
                     Genre = "Romantic Comedy",
+                    Rating = "G",
                     Price = 7.99M
                 },
                 new Movie
@@ -32,6 +33,7 @@ public static class SeedData
                     Title = "One months With Bybua",
                     ReleaseDate = DateTime.Parse("2023-5-1"),
                     Genre = "Romance",
+                    Rating = "G",
                     Price = 8.99M
                 },
                 new Movie
@@ -39,6 +41,7 @@ public static class SeedData
                     Title = "Two months With Bybua",
                     ReleaseDate = DateTime.Parse("2023-6-1"),
                     Genre = "Romance",
+                    Rating = "G",
                     Price = 9.99M
                 },
                 new Movie
@@ -46,6 +49,7 @@ public static class SeedData
                     Title = "Three months With Bybua",
                     ReleaseDate = DateTime.Parse("2023-7-1"),
                     Genre = "Romance",
+                    Rating = "G",
                     Price = 10.99M
                 },
                 new Movie
@@ -53,6 +57,7 @@ public static class SeedData
                     Title = "Four months With Bybua",
                     ReleaseDate = DateTime.Parse("2023-8-1"),
                     Genre = "Romance and Drama",
+                    Rating = "G",
                     Price = 11.01M
                 }
             );
