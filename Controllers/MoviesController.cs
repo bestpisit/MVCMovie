@@ -25,7 +25,7 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Movies
-        public async Task<IActionResult> Index(string movieGenre, string searchString)
+        public async Task<IActionResult> Index(string movieGenre, string searchString, string priceMinimum, string priceMaximum)
         {
             if (_context.Movie == null)
             {
@@ -37,7 +37,7 @@ namespace MvcMovie.Controllers
                                             orderby m.Genre
                                             select m.Genre;
             var movies = from m in _context.Movie
-                        select m;
+                         select m;
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -48,6 +48,21 @@ namespace MvcMovie.Controllers
             {
                 movies = movies.Where(x => x.Genre == movieGenre);
             }
+
+            if (!string.IsNullOrEmpty(priceMinimum) && decimal.TryParse(priceMinimum, out decimal min))
+            {
+                if (!string.IsNullOrEmpty(priceMaximum) && decimal.TryParse(priceMaximum, out decimal max))
+                {
+                    movies = movies.Where(x => x.Price >= min && x.Price <= max);
+                }
+                else{
+                    movies = movies.Where(x => x.Price >= min);
+                }
+            }
+            else if(!string.IsNullOrEmpty(priceMaximum) && decimal.TryParse(priceMaximum, out decimal max)){
+                movies = movies.Where(x => x.Price <= max);
+            }
+
 
             var movieGenreVM = new MovieGenreViewModel
             {
