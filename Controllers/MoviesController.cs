@@ -34,10 +34,9 @@ namespace MvcMovie.Controllers
 
             // Use LINQ to get list of genres.
             IQueryable<string> genreQuery = from m in _context.Movie
-                                            orderby m.Genre
-                                            select m.Genre;
-            var movies = from m in _context.Movie
-                         select m;
+                orderby m.Genre
+                select m.Genre;
+            var movies = from m in _context.Movie select m;
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -49,18 +48,18 @@ namespace MvcMovie.Controllers
                 movies = movies.Where(x => x.Genre == movieGenre);
             }
 
-            if (!string.IsNullOrEmpty(priceMinimum) && decimal.TryParse(priceMinimum, out decimal min))
+            if (!string.IsNullOrEmpty(priceMinimum) && decimal.TryParse(priceMinimum, out decimal min)) // Checking the minimum price is valid and then parse it to min variable
             {
-                if (!string.IsNullOrEmpty(priceMaximum) && decimal.TryParse(priceMaximum, out decimal max))
+                if (!string.IsNullOrEmpty(priceMaximum) && decimal.TryParse(priceMaximum, out decimal max)) // Checking the maximum price is valid and then parse it to max variable
                 {
-                    movies = movies.Where(x => x.Price >= min && x.Price <= max);
+                    movies = movies.Where(x => x.Price >= min && x.Price <= max); // Filter out the movie cost range between minimum price and maximum price
                 }
                 else{
-                    movies = movies.Where(x => x.Price >= min);
+                    movies = movies.Where(x => x.Price >= min); // if there is no maximum price then Filter out the movie cost which greater than minimum price
                 }
             }
-            else if(!string.IsNullOrEmpty(priceMaximum) && decimal.TryParse(priceMaximum, out decimal max)){
-                movies = movies.Where(x => x.Price <= max);
+            else if(!string.IsNullOrEmpty(priceMaximum) && decimal.TryParse(priceMaximum, out decimal max)){ // if the minimum price is invalid but the maximum price is valid
+                movies = movies.Where(x => x.Price <= max); // then get the movies that has the price lower than it's maximum price limit
             }
 
 
